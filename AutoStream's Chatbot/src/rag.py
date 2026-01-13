@@ -9,11 +9,9 @@ def setup_rag_retriever():
     Ingests the knowledge.md file and returns a retriever interface.
     Uses Local Embeddings to avoid API Rate Limits.
     """
-    # Define persistence directory so we don't re-embed every time
     persist_directory = os.path.join(os.path.dirname(__file__), "../chroma_db")
     file_path = os.path.join(os.path.dirname(__file__), "../data/knowledge.md")
     
-    # Initialize Local Embeddings (Runs on your CPU, Free, No Rate Limits)
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     
     # Check if we already have the DB
