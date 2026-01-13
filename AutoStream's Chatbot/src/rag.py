@@ -1,7 +1,7 @@
 import os
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings  # CHANGED: Local Embeddings
+from langchain_huggingface import HuggingFaceEmbeddings 
 from langchain_community.vectorstores import Chroma
 
 def setup_rag_retriever():
@@ -41,4 +41,5 @@ def setup_rag_retriever():
             collection_name="autostream_knowledge",
             persist_directory=persist_directory
         )
+
     return vectorstore.as_retriever()
